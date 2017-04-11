@@ -1,5 +1,5 @@
 import React from "react";
-import {Grid, Row, Col, Jumbotron} from "react-bootstrap";
+import {Grid, Row, Col, Jumbotron, Button} from "react-bootstrap";
 
 const Main = () => {
 
@@ -12,8 +12,16 @@ const Main = () => {
             </Jumbotron>
             <Grid>
                 <Row>
-                    <Col xs={6}><h2>Your text will be here</h2></Col>
-                    <Col xs={6}><h2>Your input is here</h2></Col>
+                    <Col xs={6}>
+                        <h2>Your text will be here</h2>
+                        <Button bsStyle="danger">Close Menu</Button>
+                        {/*<Button>Close menu</Button>*/}
+                    </Col>
+                    <Col xs={6}>
+                        <h2>Your input is here</h2>
+                        <Button bsStyle="success">Add item</Button>
+                        {/*<Button>Add item</Button>*/}
+                    </Col>
                 </Row>
             </Grid>
         </div>
