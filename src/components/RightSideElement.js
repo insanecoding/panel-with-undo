@@ -37,6 +37,9 @@ const RightSideInput = ({items, onChange}) => {
     );
 };
 
+/*
+ items is array of ImmutableJS's Maps!
+ */
 RightSideInput.propTypes = {
     items: PropTypes.array.isRequired,
     onChange: PropTypes.func.isRequired

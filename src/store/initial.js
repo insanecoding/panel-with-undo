@@ -2,5 +2,14 @@ import Immutable from "immutable";
 
 export const InitialState = Immutable.fromJS({
     showPanel: false,
-    items: []
+    items: [
+        {
+            text: "",
+            isDisabled: true
+        },
+        {
+            text: "foo",
+            isDisabled: false
+        }
+    ]
 });

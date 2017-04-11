@@ -9,7 +9,7 @@ const LeftSideView = ({items}) => {
             <ListGroup>
                 {
                     items.map((item, currIdx) =>
-                        <ListGroupItem key={currIdx}> {item} </ListGroupItem>
+                        <ListGroupItem key={currIdx}> {item.toObject().text} </ListGroupItem>
                     )
                 }
             </ListGroup>
@@ -17,6 +17,9 @@ const LeftSideView = ({items}) => {
     );
 };
 
+/*
+ items is array of ImmutableJS's Maps!
+ */
 LeftSideView.propTypes = {
     items: PropTypes.array.isRequired
 };

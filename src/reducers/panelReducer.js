@@ -4,6 +4,7 @@ import {
     ADD_ITEM,
     INPUT_CHANGED
 } from "../constants/constants";
+import Immutable from "immutable";
 
 const panelReducer = (state = InitialState, action) => {
 
@@ -15,13 +16,17 @@ const panelReducer = (state = InitialState, action) => {
         }
 
         case ADD_ITEM: {
-            let prevVal = state.getIn(['items']);
-            return state.setIn(['items'], prevVal.push(""));
+            const newObj = Immutable.fromJS({
+                    text: "",
+                    isDisabled: false
+                });
+            let prevArr = state.getIn(['items']);
+            return state.setIn(['items'], prevArr.push(newObj));
         }
 
         case INPUT_CHANGED: {
             const {index, value} = action;
-            return state.setIn(['items', index], value);
+            return state.setIn(['items', index, "text"], value);
         }
 
         default:
