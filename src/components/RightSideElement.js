@@ -1,10 +1,21 @@
 import React, {PropTypes} from 'react';
+import InputWithButton from './InputWithButton';
+import "./RightSideElement.css";
 
 const RightSideInput = ({items}) => {
 
     return (
-        <div className="right-side-elem">
-            {items.length}
+        <div className="inputs">
+            {
+                items.map((item, currIdx) => {
+                        return (
+                            <div className="single-input">
+                                <InputWithButton name={currIdx + ""} key={currIdx} value={item}/>
+                            </div>
+                        )
+                    }
+                )
+            }
         </div>
     );
 };

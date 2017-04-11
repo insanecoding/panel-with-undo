@@ -16,6 +16,7 @@ class App extends Component {
         const param = {
             isPanelOn: showPanel,
             addItem: addItem,
+            hidePanel: buttonClicked,
             items: items.toArray()
         };
 

@@ -1,12 +1,15 @@
 import React, {PropTypes} from 'react';
 import {Grid, Row, Col, Jumbotron, Button} from "react-bootstrap";
 import RightSideInput from "./RightSideElement";
+import LeftSideView from "./LeftSideElement";
 
-const Main = ({isPanelOn, addItem, items}) => {
+const Main = ({isPanelOn, addItem, hidePanel, items}) => {
 
     const clicked = (e) => {
         if (e.target.name === "add") {
             addItem();
+        } else if (e.target.name === "close") {
+            hidePanel();
         }
     };
 
@@ -26,6 +29,7 @@ const Main = ({isPanelOn, addItem, items}) => {
                                 <Col xs={6}>
                                     <h2>Your text will be here</h2>
                                     <Button bsStyle="danger" name="close" onClick={clicked}>Close Menu</Button>
+                                    <LeftSideView items={items}/>
                                 </Col>
                                 <Col xs={6}>
                                     <h2>Your input is here</h2>
@@ -47,6 +51,7 @@ const Main = ({isPanelOn, addItem, items}) => {
 Main.propTypes = {
     isPanelOn: PropTypes.bool.isRequired,
     addItem:  PropTypes.func.isRequired,
+    hidePanel: PropTypes.func.isRequired,
     items: PropTypes.array.isRequired,
 };
 
