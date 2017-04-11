@@ -4,13 +4,30 @@ import "./RightSideElement.css";
 
 const RightSideInput = ({items, onChange}) => {
 
+    const onRemove = (e) => {
+        console.log(e.target.name, "pressed remove");
+    };
+
+    const onRestore = (e) => {
+        console.log(e.target.name, "pressed revert");
+    };
+
     return (
         <div className="inputs">
             {
                 items.map((item, currIdx) => {
+
+                        const param = {
+                            name: currIdx + "",
+                            value: item,
+                            onChange: onChange,
+                            onRemove: onRemove,
+                            onRestore: onRestore
+                        };
+
                         return (
                             <div className="single-input" key={currIdx}>
-                                <InputWithButton name={currIdx + ""}  value={item} onChange={onChange} />
+                                <InputWithButton {...param} />
                             </div>
                         )
                     }
@@ -22,7 +39,7 @@ const RightSideInput = ({items, onChange}) => {
 
 RightSideInput.propTypes = {
     items: PropTypes.array.isRequired,
-    onChange:  PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired
 };
 
 export default RightSideInput;
