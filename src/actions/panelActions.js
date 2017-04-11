@@ -1,10 +1,19 @@
 import {
-    BUTTON_CLICKED
+    BUTTON_CLICKED,
+    ADD_ITEM
 } from "../constants/constants";
 
 
-export const buttonClicked = () => {
+const buttonClicked = () => {
     return {
         type: BUTTON_CLICKED
     }
 };
+
+const addItem = () => {
+    return {
+        type: ADD_ITEM
+    }
+};
+
+export {buttonClicked, addItem}

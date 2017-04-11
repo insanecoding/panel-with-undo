@@ -1,7 +1,13 @@
 import React, {PropTypes} from 'react';
 import {Grid, Row, Col, Jumbotron, Button} from "react-bootstrap";
 
-const Main = ({isPanelOn}) => {
+const Main = ({isPanelOn, addItem}) => {
+
+    const clicked = (e) => {
+        if (e.target.name === "add") {
+            addItem();
+        }
+    };
 
     return (
         <div className="main">
@@ -18,11 +24,11 @@ const Main = ({isPanelOn}) => {
                             <Row>
                                 <Col xs={6}>
                                     <h2>Your text will be here</h2>
-                                    <Button bsStyle="danger" name="close" onClick={}>Close Menu</Button>
+                                    <Button bsStyle="danger" name="close" onClick={clicked}>Close Menu</Button>
                                 </Col>
                                 <Col xs={6}>
                                     <h2>Your input is here</h2>
-                                    <Button bsStyle="success" name="add" onClick={}>Add item</Button>
+                                    <Button bsStyle="success" name="add" onClick={clicked}>Add item</Button>
                                 </Col>
                             </Row>
                         </Grid>
@@ -37,7 +43,8 @@ const Main = ({isPanelOn}) => {
 
 
 Main.propTypes = {
-    isPanelOn: PropTypes.bool.isRequired
+    isPanelOn: PropTypes.bool.isRequired,
+    addItem:  PropTypes.func.isRequired
 };
 
 export default Main;

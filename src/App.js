@@ -10,13 +10,18 @@ class App extends Component {
     render() {
 
         const {panelReducer} = this.props;
-        const {buttonClicked} = this.props.panelActions;
-        const {showPanel} = panelReducer;
+        const {buttonClicked, addItem} = this.props.panelActions;
+        const {showPanel} = panelReducer.toObject();
+
+        const param = {
+            isPanelOn: showPanel,
+            addItem: addItem
+        };
 
         return (
             <div className="App">
                 <Header onButtonClick={buttonClicked}/>
-                <Main isPanelOn={showPanel}/>
+                <Main {...param}/>
                 <Footer/>
             </div>
         );

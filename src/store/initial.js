@@ -1,3 +1,6 @@
-export let InitialState = {
-    showPanel: false
-};
+import Immutable from "immutable";
+
+export const InitialState = Immutable.fromJS({
+    showPanel: false,
+    items: 0
+});

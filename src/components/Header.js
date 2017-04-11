@@ -4,7 +4,6 @@ import React, {PropTypes} from 'react';
 const Header = ({onButtonClick}) => {
 
     const clicked = () => {
-        console.log("click");
         onButtonClick();
     };
 
