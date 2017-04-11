@@ -1,5 +1,3 @@
-const InitialState = {
+export let InitialState = {
     showPanel: false
 };
-
-export default InitialState;

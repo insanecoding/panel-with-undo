@@ -1,56 +1,35 @@
-/**
- * Created by Дмитрий on 11.04.2017.
- */
-
 import {Navbar, Nav, NavItem, Glyphicon} from "react-bootstrap";
-import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as panelActions from "./../actions/panelActions";
+import React, {PropTypes} from 'react';
 
-class Header extends Component {
+const Header = ({onButtonClick}) => {
 
-    handleClick = () => {
-        this.props.panelActions.buttonClicked();
+    const clicked = () => {
+        console.log("click");
+        onButtonClick();
     };
 
-    render() {
-        return (
-            <Navbar inverse collapseOnSelect>
-                <Navbar.Header>
-                    <Navbar.Brand>
-                        <a href="/">Our awesome website</a>
-                    </Navbar.Brand>
-                    <Navbar.Toggle />
-                </Navbar.Header>
-                <Navbar.Collapse>
-                    <Nav pullRight>
-                        <NavItem eventKey={1} href="#">
-                            <Glyphicon glyph="menu-hamburger"/>
-                            <span onClick={ this.handleClick}> &nbsp; Open menu </span>
-                        </NavItem>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-        )
-    };
-}
-
-
-const mapStateToProps = (state) => {
-    return {
-        panelReducer: state.panelReducer
-    };
+    return (
+        <Navbar inverse collapseOnSelect>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <a href="/">Our awesome website</a>
+                </Navbar.Brand>
+                <Navbar.Toggle />
+            </Navbar.Header>
+            <Navbar.Collapse>
+                <Nav pullRight>
+                    <NavItem>
+                        <Glyphicon glyph="menu-hamburger"/>
+                        <span onClick={clicked}> &nbsp; Open menu </span>
+                    </NavItem>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+    )
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        panelActions: bindActionCreators(panelActions, dispatch)
-    };
+Header.propTypes = {
+    onButtonClick: PropTypes.func.isRequired
 };
 
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Header);
+export default Header;
