@@ -9,8 +9,8 @@ const RightSideInput = ({items}) => {
             {
                 items.map((item, currIdx) => {
                         return (
-                            <div className="single-input">
-                                <InputWithButton name={currIdx + ""} key={currIdx} value={item}/>
+                            <div className="single-input" key={currIdx}>
+                                <InputWithButton name={currIdx + ""}  value={item}/>
                             </div>
                         )
                     }
