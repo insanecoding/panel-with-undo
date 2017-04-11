@@ -1,7 +1,8 @@
 import {InitialState} from "./../store/initial";
 import {
     BUTTON_CLICKED,
-    ADD_ITEM
+    ADD_ITEM,
+    INPUT_CHANGED
 } from "../constants/constants";
 
 const panelReducer = (state = InitialState, action) => {
@@ -16,6 +17,11 @@ const panelReducer = (state = InitialState, action) => {
         case ADD_ITEM: {
             let prevVal = state.getIn(['items']);
             return state.setIn(['items'], prevVal.push(""));
+        }
+
+        case INPUT_CHANGED: {
+            const {index, value} = action;
+            return state.setIn(['items', index], value);
         }
 
         default:

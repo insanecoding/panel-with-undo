@@ -18,8 +18,7 @@ const LeftSideView = ({items}) => {
 };
 
 LeftSideView.propTypes = {
-    items: PropTypes.array.isRequired,
-    // addItem:  PropTypes.func.isRequired
+    items: PropTypes.array.isRequired
 };
 
 export default LeftSideView;

@@ -1,6 +1,7 @@
 import {
     BUTTON_CLICKED,
-    ADD_ITEM
+    ADD_ITEM,
+    INPUT_CHANGED
 } from "../constants/constants";
 
 
@@ -16,4 +17,12 @@ const addItem = () => {
     }
 };
 
-export {buttonClicked, addItem}
+const inputChanged = (index, inputVal) => {
+    return {
+        type: INPUT_CHANGED,
+        index: index,
+        value: inputVal
+    }
+};
+
+export {buttonClicked, addItem, inputChanged}

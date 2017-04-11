@@ -10,14 +10,15 @@ class App extends Component {
     render() {
 
         const {panelReducer} = this.props;
-        const {buttonClicked, addItem} = this.props.panelActions;
+        const {buttonClicked, addItem, inputChanged} = this.props.panelActions;
         const {showPanel, items} = panelReducer.toObject();
 
         const param = {
             isPanelOn: showPanel,
             addItem: addItem,
             hidePanel: buttonClicked,
-            items: items.toArray()
+            items: items.toArray(),
+            inputChanged: inputChanged
         };
 
         return (
