@@ -1,7 +1,8 @@
 import {
     BUTTON_CLICKED,
     ADD_ITEM,
-    INPUT_CHANGED
+    INPUT_CHANGED,
+    REMOVE_BUTTON_PRESSED
 } from "../constants/constants";
 
 
@@ -25,4 +26,11 @@ const inputChanged = (index, inputVal) => {
     }
 };
 
-export {buttonClicked, addItem, inputChanged}
+const onRemoveButton = (index) => {
+    return {
+        type: REMOVE_BUTTON_PRESSED,
+        index: index
+    }
+};
+
+export {buttonClicked, addItem, inputChanged, onRemoveButton}

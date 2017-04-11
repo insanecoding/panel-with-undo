@@ -20,7 +20,7 @@ const InputWithButton = ({name, value, onChange, onRemove, onRestore}) => {
         <Row>
             <Col xs={12} md={9}>
                 <FormControl componentClass="textarea"
-                             placeholder="input your text here" name={name}
+                             name={name}
                              value={text}
                              onChange={onChange}
                              disabled={isDisabled}
