@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import "./App.css";
-import {Header, Main, Footer} from "./components/index";
+import {Header, Main, Footer} from "../components/index";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as panelActions from "./actions/panelActions";
+import * as panelActions from "../actions/panelActions";
 
 class App extends Component {
 
@@ -11,11 +11,12 @@ class App extends Component {
 
         const {panelReducer} = this.props;
         const {buttonClicked, addItem} = this.props.panelActions;
-        const {showPanel} = panelReducer.toObject();
+        const {showPanel, items} = panelReducer.toObject();
 
         const param = {
             isPanelOn: showPanel,
-            addItem: addItem
+            addItem: addItem,
+            items: items.toArray()
         };
 
         return (

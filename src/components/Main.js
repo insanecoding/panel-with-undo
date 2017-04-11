@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react';
 import {Grid, Row, Col, Jumbotron, Button} from "react-bootstrap";
+import RightSideInput from "./RightSideElement";
 
-const Main = ({isPanelOn, addItem}) => {
+const Main = ({isPanelOn, addItem, items}) => {
 
     const clicked = (e) => {
         if (e.target.name === "add") {
@@ -29,6 +30,7 @@ const Main = ({isPanelOn, addItem}) => {
                                 <Col xs={6}>
                                     <h2>Your input is here</h2>
                                     <Button bsStyle="success" name="add" onClick={clicked}>Add item</Button>
+                                    <RightSideInput items={items}/>
                                 </Col>
                             </Row>
                         </Grid>
@@ -44,7 +46,8 @@ const Main = ({isPanelOn, addItem}) => {
 
 Main.propTypes = {
     isPanelOn: PropTypes.bool.isRequired,
-    addItem:  PropTypes.func.isRequired
+    addItem:  PropTypes.func.isRequired,
+    items: PropTypes.array.isRequired,
 };
 
 export default Main;

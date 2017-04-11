@@ -11,23 +11,11 @@ const panelReducer = (state = InitialState, action) => {
         case BUTTON_CLICKED: {
             let prevVal = state.getIn(['showPanel']);
             return state.setIn(['showPanel'], !prevVal);
-            // return Object.assign(
-            //     {}, state, {
-            //         showPanel: !state.showPanel
-            //     }
-            // );
         }
 
         case ADD_ITEM: {
-
             let prevVal = state.getIn(['items']);
-            return state.setIn(['items'], ++prevVal);
-
-            // return Object.assign(
-            //     {}, state, {
-            //         items: ++state.items
-            //     }
-            // );
+            return state.setIn(['items'], prevVal.push(""));
         }
 
         default:
