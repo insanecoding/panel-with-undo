@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
 import "./RightSideElement.css";
+import Immutable from "immutable";
 
 const LeftSideView = ({items}) => {
 
@@ -17,11 +18,9 @@ const LeftSideView = ({items}) => {
     );
 };
 
-/*
- items is array of ImmutableJS's Maps!
- */
+
 LeftSideView.propTypes = {
-    items: PropTypes.array.isRequired
+    items: PropTypes.arrayOf(PropTypes.instanceOf(Immutable.Map)).isRequired,
 };
 
 export default LeftSideView;

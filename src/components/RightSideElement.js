@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import InputWithButton from './InputWithButton';
 import "./RightSideElement.css";
+import Immutable from "immutable";
 
 const RightSideInput = ({items, onChange, onRemoveButton, undo}) => {
 
@@ -39,11 +40,8 @@ const RightSideInput = ({items, onChange, onRemoveButton, undo}) => {
     );
 };
 
-/*
- items is array of ImmutableJS's Maps!
- */
 RightSideInput.propTypes = {
-    items: PropTypes.array.isRequired,
+    items: PropTypes.arrayOf(PropTypes.instanceOf(Immutable.Map)).isRequired,
     onChange: PropTypes.func.isRequired,
     onRemoveButton: PropTypes.func.isRequired,
     undo: PropTypes.func.isRequired,

@@ -2,8 +2,7 @@ import {
     BUTTON_CLICKED,
     ADD_ITEM,
     INPUT_CHANGED,
-    REMOVE_BUTTON_PRESSED,
-    UNDO
+    REMOVE_BUTTON_PRESSED
 } from "../constants/constants";
 
 
@@ -34,10 +33,4 @@ const onRemoveButton = (index) => {
     }
 };
 
-const undo = () => {
-    return {
-        type: UNDO
-    }
-};
-
-export {buttonClicked, addItem, inputChanged, onRemoveButton, undo}
+export {buttonClicked, addItem, inputChanged, onRemoveButton}
