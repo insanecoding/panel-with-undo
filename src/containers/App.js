@@ -10,7 +10,7 @@ class App extends Component {
     render() {
 
         const {panelReducer} = this.props;
-        const {buttonClicked, addItem, inputChanged, onRemoveButton} = this.props.panelActions;
+        const {buttonClicked, addItem, inputChanged, onRemoveButton, undo} = this.props.panelActions;
         const {showPanel, items} = panelReducer.toObject();
 
         const param = {
@@ -19,7 +19,8 @@ class App extends Component {
             hidePanel: buttonClicked,
             items: items.toArray(),
             inputChanged: inputChanged,
-            onRemoveButton: onRemoveButton
+            onRemoveButton: onRemoveButton,
+            undo: undo
         };
 
         return (

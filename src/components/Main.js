@@ -3,7 +3,7 @@ import {Grid, Row, Col, Jumbotron, Button} from "react-bootstrap";
 import RightSideInput from "./RightSideElement";
 import LeftSideView from "./LeftSideElement";
 
-const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, onRemoveButton}) => {
+const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, ...others}) => {
 
     const clicked = (e) => {
         if (e.target.name === "add") {
@@ -38,10 +38,7 @@ const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, onRemoveButto
                                 <Col xs={6}>
                                     <h2>Your input is here</h2>
                                     <Button bsStyle="success" name="add" onClick={clicked}>Add item</Button>
-                                    <RightSideInput items={items}
-                                                    onChange={onChange}
-                                                    onRemoveButton={onRemoveButton}
-                                    />
+                                    <RightSideInput items={items} onChange={onChange} {...others}/>
                                 </Col>
                             </Row>
                         </Grid>
@@ -61,6 +58,7 @@ Main.propTypes = {
     hidePanel: PropTypes.func.isRequired,
     inputChanged: PropTypes.func.isRequired,
     onRemoveButton: PropTypes.func.isRequired,
+    undo: PropTypes.func.isRequired,
     items: PropTypes.array.isRequired,
 };
 

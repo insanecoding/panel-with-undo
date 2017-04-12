@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import InputWithButton from './InputWithButton';
 import "./RightSideElement.css";
 
-const RightSideInput = ({items, onChange, onRemoveButton}) => {
+const RightSideInput = ({items, onChange, onRemoveButton, undo}) => {
 
     const onRemove = (e) => {
         onRemoveButton(e.target.name);
@@ -10,6 +10,7 @@ const RightSideInput = ({items, onChange, onRemoveButton}) => {
     };
 
     const onRestore = (e) => {
+        undo();
         console.log(e.target.name, "pressed restore");
     };
 
@@ -45,6 +46,7 @@ RightSideInput.propTypes = {
     items: PropTypes.array.isRequired,
     onChange: PropTypes.func.isRequired,
     onRemoveButton: PropTypes.func.isRequired,
+    undo: PropTypes.func.isRequired,
 };
 
 export default RightSideInput;

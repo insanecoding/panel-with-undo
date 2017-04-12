@@ -3,13 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './containers/App';
 import './index.css';
 import {Provider} from "react-redux";
-import {combineReducers} from "redux";
 import configureStore from "./store/configureStore";
-import panelReducer from "./reducers/panelReducer";
-
-const reducer = combineReducers({
-    panelReducer
-});
+import reducer from "./reducers/index";
 
 const store = configureStore({}, reducer);
 
