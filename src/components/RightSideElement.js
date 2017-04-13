@@ -5,11 +5,15 @@ import Immutable from "immutable";
 import { ActionCreators } from 'redux-undo-immutable';
 import { connect } from 'react-redux'
 
-let RightSideInput = ({items, onChange, onRemoveButton, onUndo}) => {
+let RightSideInput = ({items, onChange, onRemoveButton, onUndo, clearHistory}) => {
 
     const onRemove = (e) => {
         onRemoveButton(e.target.name);
     };
+
+    const onRestore = () => {
+        onUndo();
+    } ;
 
     return (
         <div className="inputs">
@@ -21,7 +25,7 @@ let RightSideInput = ({items, onChange, onRemoveButton, onUndo}) => {
                             value: item,
                             onChange: onChange,
                             onRemove: onRemove,
-                            onRestore: onUndo
+                            onRestore: onRestore
                         };
 
                         return (
@@ -40,13 +44,15 @@ RightSideInput.propTypes = {
     items: PropTypes.arrayOf(PropTypes.instanceOf(Immutable.Map)).isRequired,
     onChange: PropTypes.func.isRequired,
     onRemoveButton: PropTypes.func.isRequired,
-    // undo: PropTypes.func.isRequired,
+    onUndo: PropTypes.func.isRequired,
+    clearHistory: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = ({
-    onUndo: ActionCreators.undo
+    onUndo: ActionCreators.undo,
+    clearHistory: ActionCreators.clearHistory
 });
 
 RightSideInput = connect(

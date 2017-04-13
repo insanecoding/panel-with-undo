@@ -35,6 +35,8 @@ const panelReducer = (state = InitialState, action) => {
     }
 };
 
-const undoablePanelReducer = undoable(panelReducer);
+const undoablePanelReducer = undoable(panelReducer, {
+    limit: 0
+});
 
 export default undoablePanelReducer ;
