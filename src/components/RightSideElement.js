@@ -3,14 +3,14 @@ import InputWithButton from './InputWithButton';
 import "./RightSideElement.css";
 import Immutable from "immutable";
 
-let RightSideInput = ({items, onChange, onRemoveButton, undo}) => {
+const RightSideInput = ({items, onChange, onRemoveButton, onRestoreButton}) => {
 
     const onRemove = (e) => {
         onRemoveButton(e.target.name);
     };
 
-    const onRestore = () => {
-        undo();
+    const onRestore = (e) => {
+        onRestoreButton(e.target.name);
     } ;
 
     return (
@@ -42,7 +42,7 @@ RightSideInput.propTypes = {
     items: PropTypes.arrayOf(PropTypes.instanceOf(Immutable.Map)).isRequired,
     onChange: PropTypes.func.isRequired,
     onRemoveButton: PropTypes.func.isRequired,
-    undo: PropTypes.func.isRequired
+    onRestoreButton: PropTypes.func.isRequired
 };
 
 export default RightSideInput;

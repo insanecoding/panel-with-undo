@@ -5,7 +5,8 @@ export const InitialState = Immutable.fromJS({
     items: [
         {
             text: "",
-            isDisabled: false
+            isDisabled: false,
+            oldText: ""
         }
     ]
 });
