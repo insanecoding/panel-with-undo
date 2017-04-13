@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
-import InputWithButton from './InputWithButton';
-import "./RightSideElement.css";
+import {InputWithButton} from '../components';
 import Immutable from "immutable";
+import "./RightSideElement.css";
 
 const RightSideInput = ({items, onChange, onRemoveButton, onRestoreButton}) => {
 

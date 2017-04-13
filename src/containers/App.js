@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import "./App.css";
-import {Header, Main, Footer} from "../components/index";
+import {Header, Main, Footer, RightSideInput, LeftSideView} from "../components";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as panelActions from "../actions/panelActions";
@@ -17,14 +17,17 @@ class App extends Component {
             onRemoveButton,
             onRestoreButton
         } = this.props.panelActions;
-        const {items, showPanel} = panelReducer.toObject();
 
+        const {items, showPanel} = panelReducer.toObject();
         const param = {
             isPanelOn: showPanel,
             addItem: addItem,
             hidePanel: buttonClicked,
+        };
+
+        const param2 = {
             items: items.toArray(),
-            inputChanged: inputChanged,
+            onChange: (e) => inputChanged(e.target.name, e.target.value),
             onRemoveButton: onRemoveButton,
             onRestoreButton: onRestoreButton
         };
@@ -32,7 +35,10 @@ class App extends Component {
         return (
             <div className="App">
                 <Header onButtonClick={buttonClicked}/>
-                <Main {...param}/>
+                <Main {...param}>
+                    <LeftSideView items={items.toArray()}/>
+                    <RightSideInput {...param2} />
+                </Main>
                 <Footer/>
             </div>
         );

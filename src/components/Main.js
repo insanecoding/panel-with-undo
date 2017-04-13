@@ -1,9 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Grid, Row, Col, Jumbotron, Button} from "react-bootstrap";
-import RightSideInput from "./RightSideElement";
-import LeftSideView from "./LeftSideElement";
 
-const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, ...others}) => {
+const Main = ({children, isPanelOn, addItem, hidePanel}) => {
 
     const clicked = (e) => {
         if (e.target.name === "add") {
@@ -11,10 +9,6 @@ const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, ...others}) =
         } else if (e.target.name === "close") {
             hidePanel("close");
         }
-    };
-
-    const onChange = (e) => {
-        inputChanged(e.target.name, e.target.value);
     };
 
     const renderJumbotron = () => {
@@ -35,12 +29,13 @@ const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, ...others}) =
                             <Col xs={6}>
                                 <h2>Your text will be here</h2>
                                 <Button bsStyle="danger" name="close" onClick={clicked}>Close Menu</Button>
-                                <LeftSideView items={items}/>
+                                { children[0] }
+
                             </Col>
                             <Col xs={6}>
                                 <h2>Your input is here</h2>
                                 <Button bsStyle="success" name="add" onClick={clicked}>Add item</Button>
-                                <RightSideInput items={items} onChange={onChange} {...others}/>
+                                { children[1] }
                             </Col>
                         </Row>
                     </Grid>
@@ -60,13 +55,10 @@ const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, ...others}) =
 
 
 Main.propTypes = {
+    children: PropTypes.array,
     isPanelOn: PropTypes.bool.isRequired,
     addItem: PropTypes.func.isRequired,
-    hidePanel: PropTypes.func.isRequired,
-    inputChanged: PropTypes.func.isRequired,
-    onRemoveButton: PropTypes.func.isRequired,
-    onRestoreButton: PropTypes.func.isRequired,
-    items: PropTypes.array.isRequired,
+    hidePanel: PropTypes.func.isRequired
 };
 
 export default Main;
