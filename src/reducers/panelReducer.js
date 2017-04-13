@@ -1,6 +1,5 @@
 import {InitialState} from "./../store/initial";
 import {
-    BUTTON_CLICKED,
     ADD_ITEM,
     INPUT_CHANGED, REMOVE_BUTTON_PRESSED
 } from "../constants/constants";
@@ -9,11 +8,6 @@ import Immutable from "immutable";
 const panelReducer = (state = InitialState, action) => {
 
     switch (action.type) {
-
-        case BUTTON_CLICKED: {
-            let prevVal = state.getIn(['showPanel']);
-            return state.setIn(['showPanel'], !prevVal);
-        }
 
         case ADD_ITEM: {
             const newObj = Immutable.fromJS({
@@ -34,7 +28,6 @@ const panelReducer = (state = InitialState, action) => {
             return state.setIn(['items', index, "text"], "")
                 .setIn(['items', index, "isDisabled"], true);
         }
-
 
         default:
             return state;
