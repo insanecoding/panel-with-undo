@@ -10,8 +10,12 @@ const panelReducer = (state = InitialState, action) => {
     switch (action.type) {
 
         case BUTTON_CLICKED: {
-            let prevVal = state.getIn(['showPanel']);
-            return state.setIn(['showPanel'], !prevVal);
+            const mode = action.mode;
+            let isOpen = false;
+            if (mode === "open") {
+                isOpen = true;
+            }
+            return state.setIn(['showPanel'], isOpen);
         }
 
         case ADD_ITEM: {

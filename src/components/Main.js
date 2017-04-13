@@ -9,7 +9,7 @@ const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, ...others}) =
         if (e.target.name === "add") {
             addItem();
         } else if (e.target.name === "close") {
-            hidePanel();
+            hidePanel("close");
         }
     };
 

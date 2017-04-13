@@ -6,9 +6,10 @@ import {
     RESTORE_BUTTON_PRESSED
 } from "../constants/constants";
 
-const buttonClicked = () => {
+const buttonClicked = (mode) => {
     return {
-        type: BUTTON_CLICKED
+        type: BUTTON_CLICKED,
+        mode: mode
     }
 };
 

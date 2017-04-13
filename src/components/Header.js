@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react';
 const Header = ({onButtonClick}) => {
 
     const clicked = () => {
-        onButtonClick();
+        onButtonClick("open");
     };
 
     return (
