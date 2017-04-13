@@ -14,3 +14,8 @@ One simple page with panel, multiple input fields and remove/restore operation.
 
 I tried to use Redux-undo for that task, but it slightly differs from general case, so simpler solution was found,
 without this dependency
+
+## How to try it?
+as usual:
+
+`npm install && npm start`
