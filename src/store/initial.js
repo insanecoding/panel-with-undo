@@ -1,7 +1,6 @@
-import Immutable from "immutable";
+import Immutable from 'immutable';
 
 export const InitialState = Immutable.fromJS({
     showPanel: false,
-    items: [
-    ]
+    items: []
 });

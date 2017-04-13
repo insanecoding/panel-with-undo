@@ -4,7 +4,7 @@ import {
     REMOVE_BUTTON_PRESSED,
     BUTTON_CLICKED,
     RESTORE_BUTTON_PRESSED
-} from "../constants/constants";
+} from '../constants/constants';
 
 const buttonClicked = (mode) => {
     return {

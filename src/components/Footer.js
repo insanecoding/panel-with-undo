@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="panel-footer">(c) Novozhilov Dmitry, 2017</footer>
+        <footer className='panel-footer'>(c) Novozhilov Dmitry, 2017</footer>
     );
 };
 

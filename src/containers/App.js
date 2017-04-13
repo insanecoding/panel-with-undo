@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import "./App.css";
-import {Header, Main, Footer, RightSideInput, LeftSideView} from "../components";
+import './App.css';
+import {Header, Main, Footer, RightSideInput, LeftSideView} from '../components';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as panelActions from "../actions/panelActions";
+import * as panelActions from '../actions/panelActions';
 
 class App extends Component {
 
@@ -11,11 +11,8 @@ class App extends Component {
 
         const {panelReducer} = this.props;
         const {
-            buttonClicked,
-            addItem,
-            inputChanged,
-            onRemoveButton,
-            onRestoreButton
+            buttonClicked, addItem, inputChanged,
+            onRemoveButton, onRestoreButton
         } = this.props.panelActions;
 
         const {items, showPanel} = panelReducer.toObject();
@@ -33,7 +30,7 @@ class App extends Component {
         };
 
         return (
-            <div className="App">
+            <div className='App'>
                 <Header onButtonClick={buttonClicked}/>
                 <Main {...param}>
                     <LeftSideView items={items.toArray()}/>

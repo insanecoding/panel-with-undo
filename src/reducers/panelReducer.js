@@ -1,9 +1,9 @@
-import {InitialState} from "./../store/initial";
+import {InitialState} from './../store/initial';
 import {
     ADD_ITEM,
     INPUT_CHANGED, REMOVE_BUTTON_PRESSED, BUTTON_CLICKED, RESTORE_BUTTON_PRESSED
-} from "../constants/constants";
-import Immutable from "immutable";
+} from '../constants/constants';
+import Immutable from 'immutable';
 
 const panelReducer = (state = InitialState, action) => {
 
@@ -12,7 +12,7 @@ const panelReducer = (state = InitialState, action) => {
         case BUTTON_CLICKED: {
             const mode = action.mode;
             let isOpen = false;
-            if (mode === "open") {
+            if (mode === 'open') {
                 isOpen = true;
             }
             return state.setIn(['showPanel'], isOpen);
@@ -30,12 +30,12 @@ const panelReducer = (state = InitialState, action) => {
 
         case INPUT_CHANGED: {
             const {index, value} = action;
-            return state.setIn(['items', index, "text"], value);
+            return state.setIn(['items', index, 'text'], value);
         }
 
         case REMOVE_BUTTON_PRESSED: {
             const {index} = action;
-            const oldText =  state.getIn(['items', index, "text"]);
+            const oldText =  state.getIn(['items', index, 'text']);
             const newObj = Immutable.fromJS({
                 text: "",
                 isDisabled: true,
@@ -47,7 +47,7 @@ const panelReducer = (state = InitialState, action) => {
 
         case RESTORE_BUTTON_PRESSED: {
             const {index} = action;
-            const willBeText =  state.getIn(['items', index, "oldText"]);
+            const willBeText =  state.getIn(['items', index, 'oldText']);
             const newObj = Immutable.fromJS({
                 text: willBeText,
                 isDisabled: false,

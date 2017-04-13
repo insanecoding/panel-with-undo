@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {FormControl, Button, Row, Col} from 'react-bootstrap';
-import Immutable from "immutable";
+import Immutable from 'immutable';
 
 const InputWithButton = ({name, value, onChange, onRemove, onRestore}) => {
 
@@ -10,16 +10,16 @@ const InputWithButton = ({name, value, onChange, onRemove, onRestore}) => {
     const renderButtons = (isDisabled) => {
         return (isDisabled === false)
             ?
-            <Button bsStyle="warning" name={name} onClick={onRemove}>Remove</Button>
+            <Button bsStyle='warning' name={name} onClick={onRemove}>Remove</Button>
             :
-            <Button bsStyle="success" name={name} onClick={onRestore}>Restore</Button>
+            <Button bsStyle='success' name={name} onClick={onRestore}>Restore</Button>
     };
 
     return (
 
         <Row>
             <Col xs={12} md={9}>
-                <FormControl componentClass="textarea"
+                <FormControl componentClass='textarea'
                              name={name}
                              value={text}
                              onChange={onChange}

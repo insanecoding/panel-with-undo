@@ -1,17 +1,17 @@
-import {Navbar, Nav, NavItem, Glyphicon, Button} from "react-bootstrap";
+import {Navbar, Nav, NavItem, Glyphicon, Button} from 'react-bootstrap';
 import React, {PropTypes} from 'react';
 
 const Header = ({onButtonClick}) => {
 
     const clicked = () => {
-        onButtonClick("open");
+        onButtonClick('open');
     };
 
     return (
-        <Navbar inverse collapseOnSelect style={{margin: "0"}}>
+        <Navbar inverse collapseOnSelect style={{margin: '0'}}>
             <Navbar.Header>
                 <Navbar.Brand>
-                    <div style={{fontSize: "30px", color: "white", lineHeight: "30px"}}>
+                    <div style={{fontSize: '30px', color: 'white', lineHeight: '30px'}}>
                         Our awesome website
                     </div>
                 </Navbar.Brand>
@@ -21,7 +21,7 @@ const Header = ({onButtonClick}) => {
                 <Nav pullRight>
                     <NavItem>
                         <Button onClick={clicked}>
-                            <Glyphicon glyph="menu-hamburger"/>
+                            <Glyphicon glyph='menu-hamburger'/>
                             <span> &nbsp; Open menu </span>
                         </Button>
                     </NavItem>

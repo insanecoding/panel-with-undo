@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {InputWithButton} from '../components';
-import Immutable from "immutable";
-import "./RightSideElement.css";
+import Immutable from 'immutable';
+import './RightSideElement.css';
 
 const RightSideInput = ({items, onChange, onRemoveButton, onRestoreButton}) => {
 
@@ -14,7 +14,7 @@ const RightSideInput = ({items, onChange, onRemoveButton, onRestoreButton}) => {
     } ;
 
     return (
-        <div className="inputs">
+        <div className='inputs'>
             {
                 items.map((item, currIdx) => {
 
@@ -27,7 +27,7 @@ const RightSideInput = ({items, onChange, onRemoveButton, onRestoreButton}) => {
                         };
 
                         return (
-                            <div className="single-input" key={currIdx}>
+                            <div className='single-input' key={currIdx}>
                                 <InputWithButton {...param} />
                             </div>
                         )

@@ -1,13 +1,13 @@
 import React, {PropTypes} from 'react';
-import {Grid, Row, Col, Jumbotron, Button} from "react-bootstrap";
+import {Grid, Row, Col, Jumbotron, Button} from 'react-bootstrap';
 
 const Main = ({children, isPanelOn, addItem, hidePanel}) => {
 
     const clicked = (e) => {
-        if (e.target.name === "add") {
+        if (e.target.name === 'add') {
             addItem();
-        } else if (e.target.name === "close") {
-            hidePanel("close");
+        } else if (e.target.name === 'close') {
+            hidePanel('close');
         }
     };
 
@@ -28,13 +28,13 @@ const Main = ({children, isPanelOn, addItem, hidePanel}) => {
                         <Row>
                             <Col xs={6}>
                                 <h2>Your text will be here</h2>
-                                <Button bsStyle="danger" name="close" onClick={clicked}>Close Menu</Button>
+                                <Button bsStyle='danger' name='close' onClick={clicked}>Close Menu</Button>
                                 { children[0] }
 
                             </Col>
                             <Col xs={6}>
                                 <h2>Your input is here</h2>
-                                <Button bsStyle="success" name="add" onClick={clicked}>Add item</Button>
+                                <Button bsStyle='success' name='add' onClick={clicked}>Add item</Button>
                                 { children[1] }
                             </Col>
                         </Row>
@@ -46,7 +46,7 @@ const Main = ({children, isPanelOn, addItem, hidePanel}) => {
     };
 
     return (
-        <div className="main">
+        <div className='main'>
             {renderJumbotron()}
             {renderChildren(isPanelOn)}
         </div>
