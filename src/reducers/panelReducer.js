@@ -1,10 +1,9 @@
 import {InitialState} from "./../store/initial";
 import {
     ADD_ITEM,
-    INPUT_CHANGED, REMOVE_BUTTON_PRESSED
+    INPUT_CHANGED, REMOVE_BUTTON_PRESSED, BUTTON_CLICKED
 } from "../constants/constants";
 import Immutable from "immutable";
-import undoable from 'redux-undo-immutable';
 
 const panelReducer = (state = InitialState, action) => {
 
@@ -12,9 +11,9 @@ const panelReducer = (state = InitialState, action) => {
 
         case ADD_ITEM: {
             const newObj = Immutable.fromJS({
-                    text: "",
-                    isDisabled: false
-                });
+                text: "",
+                isDisabled: false
+            });
             let prevArr = state.getIn(['items']);
             return state.setIn(['items'], prevArr.push(newObj));
         }
@@ -30,13 +29,14 @@ const panelReducer = (state = InitialState, action) => {
                 .setIn(['items', index, "isDisabled"], true);
         }
 
+        case BUTTON_CLICKED: {
+            let prevVal = state.getIn(['showPanel']);
+            return state.setIn(['showPanel'], !prevVal);
+        }
+
         default:
             return state;
     }
 };
 
-const undoablePanelReducer = undoable(panelReducer, {
-    limit: 0
-});
-
-export default undoablePanelReducer ;
+export default panelReducer;

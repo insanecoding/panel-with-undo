@@ -4,17 +4,14 @@ import {Header, Main, Footer} from "../components/index";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as panelActions from "../actions/panelActions";
-import * as showActions from "../actions/showActions";
 
 class App extends Component {
 
     render() {
 
-        const {panelReducer, showReducer} = this.props;
-        const {addItem, inputChanged, onRemoveButton} = this.props.panelActions;
-        const {buttonClicked} = this.props.showActions;
-        const {items} = panelReducer.present.toObject();
-        const {showPanel} = showReducer.toObject();
+        const {panelReducer} = this.props;
+        const {addItem, inputChanged, onRemoveButton, buttonClicked} = this.props.panelActions;
+        const {items, showPanel} = panelReducer.toObject();
 
         const param = {
             isPanelOn: showPanel,
@@ -23,6 +20,7 @@ class App extends Component {
             items: items.toArray(),
             inputChanged: inputChanged,
             onRemoveButton: onRemoveButton,
+            undo: ""
         };
 
         return (
@@ -37,15 +35,13 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        panelReducer: state.panelReducer,
-        showReducer: state.showReducer
+        panelReducer: state.panelReducer
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        panelActions: bindActionCreators(panelActions, dispatch),
-        showActions: bindActionCreators(showActions, dispatch)
+        panelActions: bindActionCreators(panelActions, dispatch)
     };
 };
 

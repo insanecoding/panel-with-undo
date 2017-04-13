@@ -2,17 +2,15 @@ import React, {PropTypes} from 'react';
 import InputWithButton from './InputWithButton';
 import "./RightSideElement.css";
 import Immutable from "immutable";
-import { ActionCreators } from 'redux-undo-immutable';
-import { connect } from 'react-redux'
 
-let RightSideInput = ({items, onChange, onRemoveButton, onUndo, clearHistory}) => {
+let RightSideInput = ({items, onChange, onRemoveButton, undo}) => {
 
     const onRemove = (e) => {
         onRemoveButton(e.target.name);
     };
 
     const onRestore = () => {
-        onUndo();
+        undo();
     } ;
 
     return (
@@ -44,20 +42,7 @@ RightSideInput.propTypes = {
     items: PropTypes.arrayOf(PropTypes.instanceOf(Immutable.Map)).isRequired,
     onChange: PropTypes.func.isRequired,
     onRemoveButton: PropTypes.func.isRequired,
-    onUndo: PropTypes.func.isRequired,
-    clearHistory: PropTypes.func.isRequired
+    undo: PropTypes.func.isRequired
 };
-
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = ({
-    onUndo: ActionCreators.undo,
-    clearHistory: ActionCreators.clearHistory
-});
-
-RightSideInput = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(RightSideInput);
 
 export default RightSideInput;
