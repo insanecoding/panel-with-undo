@@ -4372,27 +4372,7 @@ redux-logger@^3.0.1:
   dependencies:
     deep-diff "0.3.4"
 
-redux-undo-immutable-js@^1.0.0-beta9-1:
-  version "1.0.0-beta9-1"
-  resolved "https://registry.yarnpkg.com/redux-undo-immutable-js/-/redux-undo-immutable-js-1.0.0-beta9-1.tgz#3104d4f2af157045cd855d626ad0693e05c948f4"
-  dependencies:
-    immutable "^3.8.1"
-    redux "^3.5.2"
-
-redux-undo-immutable@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/redux-undo-immutable/-/redux-undo-immutable-0.2.0.tgz#4f1b2cabd0ea755d6a6bcceb9cbea561eaf378db"
-  dependencies:
-    immutable "^3.8.1"
-    redux "^3.5.2"
-
-redux-undo@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/redux-undo/-/redux-undo-0.6.1.tgz#ff407749b8f468bead636e413819e92c0982eeca"
-  dependencies:
-    redux "^3.0.2"
-
-redux@^3.0.2, redux@^3.5.2, redux@^3.6.0:
+redux@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.6.0.tgz#887c2b3d0b9bd86eca2be70571c27654c19e188d"
   dependencies:
