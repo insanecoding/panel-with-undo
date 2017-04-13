@@ -13,7 +13,7 @@ class App extends Component {
         const {panelReducer, showReducer} = this.props;
         const {addItem, inputChanged, onRemoveButton} = this.props.panelActions;
         const {buttonClicked} = this.props.showActions;
-        const {items} = panelReducer.toObject();
+        const {items} = panelReducer.present.toObject();
         const {showPanel} = showReducer.toObject();
 
         const param = {

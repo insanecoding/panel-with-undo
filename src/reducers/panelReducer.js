@@ -4,6 +4,7 @@ import {
     INPUT_CHANGED, REMOVE_BUTTON_PRESSED
 } from "../constants/constants";
 import Immutable from "immutable";
+import undoable from 'redux-undo-immutable';
 
 const panelReducer = (state = InitialState, action) => {
 
@@ -34,4 +35,6 @@ const panelReducer = (state = InitialState, action) => {
     }
 };
 
-export default panelReducer;
+const undoablePanelReducer = undoable(panelReducer);
+
+export default undoablePanelReducer ;

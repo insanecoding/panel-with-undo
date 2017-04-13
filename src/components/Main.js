@@ -58,7 +58,7 @@ Main.propTypes = {
     hidePanel: PropTypes.func.isRequired,
     inputChanged: PropTypes.func.isRequired,
     onRemoveButton: PropTypes.func.isRequired,
-    undo: PropTypes.func.isRequired,
+    // undo: PropTypes.func.isRequired,
     items: PropTypes.array.isRequired,
 };
 
