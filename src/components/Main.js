@@ -20,8 +20,9 @@ const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, ...others}) =
     return (
         <div className="main">
             <Jumbotron>
-                <h1>Panel with time travel</h1>
-                <p>Just try it! You'll get undo/redo capabilities for free!</p>
+                <h1>Try our panel</h1>
+                <p>You can show/hide it, add multiple input fields, remove text or restore it!</p>
+                <p>Get started with <code>Open Menu</code> button at the top</p>
             </Jumbotron>
 
             {
