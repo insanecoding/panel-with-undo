@@ -17,37 +17,43 @@ const Main = ({isPanelOn, addItem, inputChanged, hidePanel, items, ...others}) =
         inputChanged(e.target.name, e.target.value);
     };
 
+    const renderJumbotron = () => {
+        return (<Jumbotron>
+            <h1>Try our panel</h1>
+            <p>You can show/hide it, add multiple input fields, remove text or restore it!</p>
+            <p>Get started with <code>Open Menu</code> button at the top</p>
+        </Jumbotron>);
+    };
+
+    const renderChildren = (isPanelOn) => {
+        return (
+            (isPanelOn === true)
+                ?
+                <div>
+                    <Grid>
+                        <Row>
+                            <Col xs={6}>
+                                <h2>Your text will be here</h2>
+                                <Button bsStyle="danger" name="close" onClick={clicked}>Close Menu</Button>
+                                <LeftSideView items={items}/>
+                            </Col>
+                            <Col xs={6}>
+                                <h2>Your input is here</h2>
+                                <Button bsStyle="success" name="add" onClick={clicked}>Add item</Button>
+                                <RightSideInput items={items} onChange={onChange} {...others}/>
+                            </Col>
+                        </Row>
+                    </Grid>
+                </div>
+                :
+                null
+        );
+    };
+
     return (
         <div className="main">
-            <Jumbotron>
-                <h1>Try our panel</h1>
-                <p>You can show/hide it, add multiple input fields, remove text or restore it!</p>
-                <p>Get started with <code>Open Menu</code> button at the top</p>
-            </Jumbotron>
-
-            {
-                (isPanelOn === true)
-                    ?
-                    <div>
-                        <Grid>
-                            <Row>
-                                <Col xs={6}>
-                                    <h2>Your text will be here</h2>
-                                    <Button bsStyle="danger" name="close" onClick={clicked}>Close Menu</Button>
-                                    <LeftSideView items={items}/>
-                                </Col>
-                                <Col xs={6}>
-                                    <h2>Your input is here</h2>
-                                    <Button bsStyle="success" name="add" onClick={clicked}>Add item</Button>
-                                    <RightSideInput items={items} onChange={onChange} {...others}/>
-                                </Col>
-                            </Row>
-                        </Grid>
-                    </div>
-                    :
-                    null
-            }
-
+            {renderJumbotron()}
+            {renderChildren(isPanelOn)}
         </div>
     )
 };
