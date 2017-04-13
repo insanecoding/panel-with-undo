@@ -1,25 +1,25 @@
 import {
-    ADD_ITEM,
+    ITEM_ADDED,
     INPUT_CHANGED,
-    REMOVE_BUTTON_PRESSED,
-    BUTTON_CLICKED,
-    RESTORE_BUTTON_PRESSED
+    REMOVE_BUTTON_CLICKED,
+    MENU_TOGGLED,
+    RESTORE_BUTTON_CLICKED
 } from '../constants/constants';
 
-const buttonClicked = (mode) => {
+const onMenuToggle = (mode) => {
     return {
-        type: BUTTON_CLICKED,
+        type: MENU_TOGGLED,
         mode: mode
     }
 };
 
 const addItem = () => {
     return {
-        type: ADD_ITEM
+        type: ITEM_ADDED
     }
 };
 
-const inputChanged = (index, inputVal) => {
+const onInputChange = (index, inputVal) => {
     return {
         type: INPUT_CHANGED,
         index: index,
@@ -29,16 +29,16 @@ const inputChanged = (index, inputVal) => {
 
 const onRemoveButton = (index) => {
     return {
-        type: REMOVE_BUTTON_PRESSED,
+        type: REMOVE_BUTTON_CLICKED,
         index: index
     }
 };
 
 const onRestoreButton = (index) => {
     return {
-        type: RESTORE_BUTTON_PRESSED,
+        type: RESTORE_BUTTON_CLICKED,
         index: index
     }
 };
 
-export {addItem, inputChanged, onRemoveButton, buttonClicked, onRestoreButton}
+export {addItem, onInputChange, onRemoveButton, onMenuToggle, onRestoreButton}

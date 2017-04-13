@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {ListGroup, ListGroupItem} from 'react-bootstrap';
-import './RightSideElement.css';
+import './SideElement.css';
 import Immutable from 'immutable';
 
 const LeftSideView = ({items}) => {

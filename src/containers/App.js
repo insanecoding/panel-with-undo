@@ -11,30 +11,30 @@ class App extends Component {
 
         const {panelReducer} = this.props;
         const {
-            buttonClicked, addItem, inputChanged,
+            onMenuToggle, addItem, onInputChange,
             onRemoveButton, onRestoreButton
         } = this.props.panelActions;
 
         const {items, showPanel} = panelReducer.toObject();
-        const param = {
+        const mainParam = {
             isPanelOn: showPanel,
             addItem: addItem,
-            hidePanel: buttonClicked,
+            hidePanel: onMenuToggle,
         };
 
-        const param2 = {
+        const rightSideParam = {
             items: items.toArray(),
-            onChange: (e) => inputChanged(e.target.name, e.target.value),
+            onChange: (e) => onInputChange(e.target.name, e.target.value),
             onRemoveButton: onRemoveButton,
             onRestoreButton: onRestoreButton
         };
 
         return (
             <div className='App'>
-                <Header onButtonClick={buttonClicked}/>
-                <Main {...param}>
+                <Header onButtonClick={onMenuToggle}/>
+                <Main {...mainParam}>
                     <LeftSideView items={items.toArray()}/>
-                    <RightSideInput {...param2} />
+                    <RightSideInput {...rightSideParam} />
                 </Main>
                 <Footer/>
             </div>

@@ -1,7 +1,7 @@
 import {InitialState} from './../store/initial';
 import {
-    ADD_ITEM,
-    INPUT_CHANGED, REMOVE_BUTTON_PRESSED, BUTTON_CLICKED, RESTORE_BUTTON_PRESSED
+    ITEM_ADDED, INPUT_CHANGED, REMOVE_BUTTON_CLICKED,
+    MENU_TOGGLED, RESTORE_BUTTON_CLICKED
 } from '../constants/constants';
 import Immutable from 'immutable';
 
@@ -9,7 +9,7 @@ const panelReducer = (state = InitialState, action) => {
 
     switch (action.type) {
 
-        case BUTTON_CLICKED: {
+        case MENU_TOGGLED: {
             const mode = action.mode;
             let isOpen = false;
             if (mode === 'open') {
@@ -18,7 +18,7 @@ const panelReducer = (state = InitialState, action) => {
             return state.setIn(['showPanel'], isOpen);
         }
 
-        case ADD_ITEM: {
+        case ITEM_ADDED: {
             const newObj = Immutable.fromJS({
                 text: "",
                 isDisabled: false,
@@ -33,7 +33,7 @@ const panelReducer = (state = InitialState, action) => {
             return state.setIn(['items', index, 'text'], value);
         }
 
-        case REMOVE_BUTTON_PRESSED: {
+        case REMOVE_BUTTON_CLICKED: {
             const {index} = action;
             const oldText =  state.getIn(['items', index, 'text']);
             const newObj = Immutable.fromJS({
@@ -45,7 +45,7 @@ const panelReducer = (state = InitialState, action) => {
             return state.setIn(['items', index], newObj);
         }
 
-        case RESTORE_BUTTON_PRESSED: {
+        case RESTORE_BUTTON_CLICKED: {
             const {index} = action;
             const willBeText =  state.getIn(['items', index, 'oldText']);
             const newObj = Immutable.fromJS({
